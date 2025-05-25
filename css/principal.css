@@ -1,0 +1,41 @@
+
+.principal-container { 
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+
+.principal-container h1 { 
+    color: #1E7E34;
+    margin-bottom: 25px;
+    font-size: 2em;
+}
+
+
+.principal-menu { 
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.principal-menu a { 
+    display: block;
+    padding: 15px 20px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+
+.principal-menu a:hover { 
+    background-color: #1E7E34;
+}
