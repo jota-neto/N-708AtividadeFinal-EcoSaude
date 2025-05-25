@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoSaúde - Cadastro de Resíduo</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/cadastro-residuo.css">
+</head>
+
+<body>
+    <main>
+        <section class="cadastro-residuo-container">
+            <div class="logo-container">
+                <img src="assets/images/logo-ecosaude.png" alt="Logo EcoSaúde"> 
+            </div>
+            <h1>Cadastro de Resíduo</h1>
+            <form class="cadastro-residuo-form">
+                <div class="input-group">
+                    <label for="tipo-residuo">Tipo de Resíduo</label>
+                    <select id="tipo-residuo" required>
+                        <option value="">Selecione o tipo</option>
+                        <option value="grupo-a">Grupo A - Infectantes</option>
+                        <option value="grupo-b">Grupo B - Químicos</option>
+                        <option value="grupo-c">Grupo C - Radioativos</option>
+                        <option value="grupo-d">Grupo D - Comuns</option>
+                        <option value="grupo-e">Grupo E - Perfurocortantes</option>
+                        </select>
+                </div>
+                <div class="input-group">
+                    <label for="peso">Peso/Volume</label>
+                    <input type="number" id="peso" placeholder="Ex: 5.5" step="0.01" min="0.01" required>
+                </div>
+                <div class="input-group">
+                    <label for="unidade-medida">Unidade de Medida</label>
+                    <select id="unidade-medida" required>
+                        <option value="">Selecione a unidade</option>
+                        <option value="kg">Quilogramas (kg)</option>
+                        <option value="g">Gramas (g)</option>
+                        <option value="l">Litros (l)</option>
+                        <option value="ml">Mililitros (ml)</option>
+                        <option value="un">Unidades (un)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="descricao">Descrição (opcional)</label>
+                    <textarea id="descricao" placeholder="Detalhes adicionais sobre o resíduo"></textarea>
+                </div>
+                <button type="submit" class="cadastro-residuo-button">Cadastrar Resíduo</button>
+            </form>
+            <a href="principal.html" class="back-link">Voltar para o Menu Principal</a>
+        </section>
+    </main>
+
+    <script src="js/cadastro-residuo.js"></script> 
+</body>
+</html>
+
+</body>
+
+</html>
