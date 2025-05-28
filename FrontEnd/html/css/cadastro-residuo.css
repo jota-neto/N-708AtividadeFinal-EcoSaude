@@ -1,0 +1,93 @@
+
+
+
+.cadastro-residuo-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px 20px;
+    width: 100%;
+    max-width: 500px; 
+    text-align: center;
+}
+
+/
+.cadastro-residuo-container h1 {
+    color: #1E7E34;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+
+.cadastro-residuo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+
+.cadastro-residuo-form .input-group {
+    margin-bottom: 10px; 
+}
+
+.cadastro-residuo-form .input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+
+.cadastro-residuo-form .input-group input,
+.cadastro-residuo-form .input-group select,
+.cadastro-residuo-form .input-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.cadastro-residuo-form .input-group input:focus,
+.cadastro-residuo-form .input-group select:focus,
+.cadastro-residuo-form .input-group textarea:focus {
+    border-color: #1E7E34;
+}
+
+
+.cadastro-residuo-form .input-group textarea {
+    resize: vertical; 
+    min-height: 80px; 
+}
+
+.cadastro-residuo-button {
+    width: 100%;
+    padding: 14px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.cadastro-residuo-button:hover {
+    background-color: #1E7E34;
+}
+
+
+.back-link {
+    display: block;
+    margin-top: 20px;
+    color: #28a745;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+.back-link:hover {
+    text-decoration: underline;
+}
