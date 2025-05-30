@@ -18,8 +18,8 @@
             <h1>Cadastro de Resíduo</h1>
             <form class="cadastro-residuo-form" action="conexao.php" method="POST">
                 <div class="input-group">
-                    <label for="tipo-residuo">Tipo de Resíduo</label>
-                    <select id="tipo-residuo" required name="tipo">
+                    <label for="tipo">Tipo de Resíduo</label>
+                    <select id="tipo" name="tipo">
                         <option value="">Selecione o tipo</option>
                         <option value="grupo-a">Grupo A - Infectantes</option>
                         <option value="grupo-b">Grupo B - Químicos</option>
@@ -30,11 +30,11 @@
                 </div>
                 <div class="input-group">
                     <label for="peso">Peso/Volume</label>
-                    <input type="number" id="peso" placeholder="Ex: 5.5" step="0.01" min="0.01" required name="peso">
+                    <input type="number" id="peso" placeholder="Ex: 5.5" step="0.01" min="0.01" name="peso">
                 </div>
                 <div class="input-group">
                     <label for="unidade">Unidade de Medida</label>
-                    <select id="unidade-medida" required name="unidade-medida">
+                    <select id="unidade" name="unidade">
                         <option value="">Selecione a unidade</option>
                         <option value="kg">Quilogramas (kg)</option>
                         <option value="g">Gramas (g)</option>
@@ -45,7 +45,7 @@
                 </div>
                 <div class="input-group">
                     <label for="descricao">Descrição (opcional)</label>
-                    <textarea id="descricao" placeholder="Detalhes adicionais sobre o resíduo" required name="descricao"></textarea>
+                    <textarea id="descricao" placeholder="Detalhes adicionais sobre o resíduo" name="descricao"></textarea>
                 </div>
                 <button type="submit" class="cadastro-residuo-button">Cadastrar Resíduo</button>
             </form>
