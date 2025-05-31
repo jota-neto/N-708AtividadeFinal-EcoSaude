@@ -1,51 +1,70 @@
 
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     const cadastroForm = document.querySelector('.cadastro-form');
 
-   
-    cadastroForm.addEventListener('submit', (event) => {
-        event.preventDefault(); 
+    if (cadastroForm) {
+        cadastroForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
 
-        
-        const nome = document.getElementById('nome').value;
-        const email = document.getElementById('email').value;
-        const novaSenha = document.getElementById('nova-senha').value;
-        const confirmarSenha = document.getElementById('confirmar-senha').value;
 
-        // --- Validações básicas no frontend ---
-        // 1. Verifica se as senhas coincidem
-        if (novaSenha !== confirmarSenha) {
-            alert('As senhas não coincidem! Por favor, verifique.');
-            return; // Interrompe a execução da função se as senhas não coincidirem
-        }
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const novaSenha = document.getElementById('nova-senha').value;
+            const confirmarSenha = document.getElementById('confirmar-senha').value;
 
-        // 2. Exemplo: Validação de comprimento mínimo da senha
-        if (novaSenha.length < 6) {
-            alert('A senha deve ter pelo menos 6 caracteres.');
-            return; // Interrompe a execução
-        }
+            if (novaSenha !== confirmarSenha) {
+                alert('As senhas não coincidem! Por favor, verifique.');
+                return; 
+            }
 
-        // 3. Exemplo: Validação simples de formato de e-mail
-        
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(email)) {
-            alert('Por favor, insira um endereço de e-mail válido.');
-            return;
-        }
+            if (novaSenha.length < 6) {
+                alert('A senha deve ter pelo menos 6 caracteres.');
+                return;
+            }
 
-        // --- Simulação de envio para o "backend" (apenas loga no console e dá um alerta) ---
-        console.log('--- Dados do Novo Usuário para Envio ---');
-        console.log('Nome:', nome);
-        console.log('E-mail:', email);
-        console.log('Senha: ', novaSenha); 
-        console.log('----------------------------------------');
 
-        alert('Usuário cadastrado com sucesso (simulação)!');
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert('Por favor, insira um endereço de e-mail válido.');
+                return;
+            }
+            if (!nome.trim()) { 
+                alert('O campo nome é obrigatório.');
+                return;
+            }
+            const userData = {
+                nome: nome,
+                email: email,
+                senha: novaSenha
+            };
 
-       
-        cadastroForm.reset();
+            
+            try {
+                
+                const apiUrl = 'http://localhost/N-708AtividadeFinal-EcoSaude/BackEnd/api/auth/register.php';
 
-        
-    });
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(userData),
+                });
+
+                const result = await response.json();
+                if (response.ok) { 
+                    alert(result.message || 'Usuário cadastrado com sucesso!');
+                    cadastroForm.reset();
+                } else {
+                    alert(result.message || `Erro ao cadastrar: Status ${response.status}`);
+                }
+            } catch (error) {
+                console.error('Erro ao enviar dados para o backend ou processar resposta:', error);
+                alert('Ocorreu um erro de comunicação ao tentar cadastrar. Verifique o console.');
+            }
+        });
+    } else {
+        console.error("Elemento de formulário com a classe '.cadastro-form' não foi encontrado na página.");
+    }
 });
